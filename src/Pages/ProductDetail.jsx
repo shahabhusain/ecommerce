@@ -2,25 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { ScrollRestoration, useParams } from 'react-router-dom';
 import { trendingData } from '../assets/Data';
 import Trending from '../components/home/Trending';
+import { addToCart } from '../redux/cartSlice';
+import { useDispatch } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const product = trendingData.find((item) => item.id === parseInt(id));
 
-  // Initialize state with the main product image
-  const [mainImage, setMainImage] = useState('');
+  const [mainImage, setMainImage] = useState(product?.img || '');
 
   if (!product) {
     return <div>Product not found</div>;
   }
 
-  useEffect(()=>{
+  // Update main image when the product changes
+  useEffect(() => {
+    setMainImage(product.img);
+  }, [product]);
 
-       setMainImage('')
-  },[id])
-  // Handler to update the main image
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch(addToCart(product));
+    toast.success("Product added successfully!");
+  };
+
   const handleThumbnailClick = (img) => {
-   setMainImage(img)
+    setMainImage(img);
   };
 
   return (
@@ -43,7 +53,7 @@ const ProductDetail = () => {
           {/* Main Image */}
           <img
             className="md:w-[430px] w-[233px] h-[513px] md:h-[630px] object-cover"
-            src={mainImage || product?.img}
+            src={mainImage}
             alt={product.title}
           />
         </div>
@@ -52,7 +62,7 @@ const ProductDetail = () => {
             In Stock
           </h1>
           <h2 className="text-[28px] text-[#1A1A1A] font-[600]">
-            Woodpecker Scaling Tip
+            {product.title}
           </h2>
           <p className="text-[16px] text-[#808080] font-[500]">
             Class aptent taciti sociosqu ad litora torquent per conubia nostra,
@@ -65,18 +75,14 @@ const ProductDetail = () => {
           <div className="flex flex-col gap-3">
             <h1 className="text-[#808080]">Size</h1>
             <div className="flex items-center gap-3">
-              <p className="border-[1px] py-2 px-2 rounded-lg border-[#013764] text-[14px] font-[400] text-[#013764]">
-                Small
-              </p>
-              <p className="border-[1px] py-2 px-2 rounded-lg border-[#013764] text-[14px] font-[400] text-[#013764]">
-                Medium
-              </p>
-              <p className="border-[1px] py-2 px-2 rounded-lg border-[#013764] text-[14px] font-[400] text-[#013764]">
-                Large
-              </p>
-              <p className="border-[1px] py-2 px-2 rounded-lg border-[#013764] text-[14px] font-[400] text-[#013764]">
-                Extra Large
-              </p>
+              {['Small', 'Medium', 'Large', 'Extra Large'].map((size, idx) => (
+                <p
+                  key={idx}
+                  className="border-[1px] py-2 px-2 rounded-lg border-[#013764] text-[14px] font-[400] text-[#013764]"
+                >
+                  {size}
+                </p>
+              ))}
             </div>
             <div className="h-[1px] w-full bg-[#a0a0a082] mt-2"></div>
           </div>
@@ -85,7 +91,10 @@ const ProductDetail = () => {
             per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec,
             ultrices et ipsum. Nulla varius magna a consequat pulvinar.
           </p>
-          <button className="bg-[#013764] py-2 px-2 text-center text-white w-full">
+          <button
+            onClick={handleAddToCart}
+            className="bg-[#013764] py-2 px-2 text-center text-white w-full"
+          >
             Add To Cart
           </button>
         </div>
@@ -94,6 +103,7 @@ const ProductDetail = () => {
         <h2 className="text-3xl font-bold mb-8">You May Like!</h2>
         <Trending />
       </div>
+      <ToastContainer />
     </div>
   );
 };
