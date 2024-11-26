@@ -37,7 +37,7 @@ const Header = () => {
             onClick={toggleCart}
           >
             <FaShoppingCart />
-            <span className=' text-[11px] absolute top-[-18px] left-5 bg-[#cc2626] text-white py-0.5 px-2 rounded-full'>
+            <span className=' text-[11px] absolute top-[-18px] md:left-5 bg-[#cc2626] text-white py-0.5 px-2 rounded-full'>
               {product.length > 0 ? <span>{product.length}</span> : 0}
             </span>
           </button>
@@ -51,7 +51,7 @@ const Header = () => {
 
       {/* Mobile REsponsive */}
       {open ? <>
-        <div className=' bg-white absolute top-0 flex flex-col gap-3 p-12 h-screen w-[50%]'>
+        <div className=' bg-white absolute top-0 flex flex-col gap-3 p-12 h-screen w-[70%]'>
         <Link to="/">
           <img className="w-[100px]" src={logo} alt="Logo" />
         </Link>

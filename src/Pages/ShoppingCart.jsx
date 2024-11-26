@@ -7,12 +7,12 @@ const ShoppingCart = () => {
      <div className=' w-[100%]'>
         <div className=' relative'>
           <ScrollRestoration />
-      <div className=' absolute top-0 right-20'>
+      <div className=' md:absolute top-0 right-20'>
       <Cart />
       </div>
       
     </div>
-    <div className=' pl-20'>
+    <div className=' md:pl-20 md:mt-0 mt-12'>
         <Forms />
         </div>
      </div>

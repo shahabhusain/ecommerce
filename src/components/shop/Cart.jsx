@@ -8,8 +8,8 @@ const Cart = () => {
   const { product, totalPrice, totalQuantity } = useSelector((state) => state.cart);
 
   return (
-    <div className="w-[433px] h-screen overflow-y-auto cart  bg-[#f8f8f8]">
-        <div className=" px-12 py-6 ">
+    <div className="md:w-[433px] md:h-screen overflow-y-auto cart  bg-[#f8f8f8]">
+        <div className=" md:px-12 py-6 px-6 ">
           <div>
             <h1 className="text-[#393A44] font-[700] text-[26px]">Your Orders</h1>
             <p className="text-[#393A44] font-[400] text-[14px]">{totalQuantity} Items</p>
@@ -18,13 +18,13 @@ const Cart = () => {
             {product.map((item) => (
               <div key={item.id} className="flex items-center gap-8">
                 <img
-                  className="w-[100px] h-[160px]"
+                  className="md:w-[100px] w-[80px] h-[140px]  md:h-[160px]"
                   src={item.img}
                   alt={item.title}
                 />
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center justify-between">
-                    <h1 className="text-[#000000] text-[18px] font-[600]">{item.title}</h1>
+                    <h1 className="text-[#000000] md:text-[18px] text-[15px] font-[600]">{item.title}</h1>
                     <button
                       className="text-[22px]"
                       onClick={() => dispatch(removeFromCart(item.id))}
@@ -40,14 +40,14 @@ const Cart = () => {
                   </p>
                   <div className="flex items-center gap-3 border-[black] border-[1px] rounded-full py-1 px-2 w-fit">
                     <button
-                      className="text-[16px] font-[500] bg-[#F2F2F2] w-[30px] h-[30px] rounded-full"
+                      className="md:text-[16px] text-[13px] font-[500] bg-[#F2F2F2] w-[30px] h-[30px] rounded-full"
                       onClick={() => dispatch(increaseQuantity(item.id))}
                     >
                       +
                     </button>
                     <p>{item.quantity}</p>
                     <button
-                      className="text-[16px] font-[500] bg-[#F2F2F2] w-[30px] h-[30px] rounded-full"
+                      className="md:text-[16px] text-[13px] font-[500] bg-[#F2F2F2] w-[30px] h-[30px] rounded-full"
                       onClick={() => dispatch(decreaseQuantity(item.id))}
                     >
                       -

@@ -25,15 +25,15 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="w-[80%] mx-auto flex justify-between gap-6">
+      <div className="md:w-[80%] w-[96%] mx-auto flex flex-col md:flex-row justify-between gap-6">
         <ScrollRestoration />
-        <div className="flex gap-4 w-[50%]">
+        <div className="flex gap-4 md:w-[50%]">
           {/* Thumbnails */}
           <div className="flex flex-col gap-3">
             {product.img1.map((item, index) => (
               <img
                 key={index}
-                className="w-[120px] h-[148px] cursor-pointer border border-transparent hover:border-blue-500 transition-all"
+                className="md:w-[120px] w-[80px] h-[120px] md:h-[148px] cursor-pointer border border-transparent hover:border-blue-500 transition-all"
                 src={item.img}
                 alt=""
                 onClick={() => handleThumbnailClick(item.img)}
@@ -42,12 +42,12 @@ const ProductDetail = () => {
           </div>
           {/* Main Image */}
           <img
-            className="w-[430px] h-[630px] object-cover"
+            className="md:w-[430px] w-[233px] h-[513px] md:h-[630px] object-cover"
             src={mainImage || product?.img}
             alt={product.title}
           />
         </div>
-        <div className="w-[50%] flex flex-col gap-4">
+        <div className="md:w-[50%] flex flex-col gap-4">
           <h1 className="text-[#002350] text-[11px] font-[400] bg-[#001D580D] py-2 px-4 rounded-full w-fit">
             In Stock
           </h1>

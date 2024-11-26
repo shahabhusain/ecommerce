@@ -26,7 +26,7 @@ const Image = () => {
   ];
 
   return (
-    <div className=' grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 w-[90%] mx-auto pt-20'>
+    <div className=' grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 w-[90%] mx-auto md:pt-20 pt-6'>
       {
         productData.map((item) => (
           <div key={item.id} className='relative group transition-all duration-300 ease-in-out hover:scale-105'>

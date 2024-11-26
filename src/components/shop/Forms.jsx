@@ -2,8 +2,8 @@ import React from 'react'
 import { RiBankCardLine } from "react-icons/ri";
 const Forms = () => {
   return (
-    <div className=' w-[60%] flex flex-col gap-6'>
-        <div className=' bg-[#f8f8f8] py-6 grid grid-cols-2 gap-6 px-6'>
+    <div className=' md:w-[60%] flex flex-col gap-6'>
+        <div className=' bg-[#f8f8f8] py-6 grid md:grid-cols-2 grid-cols-1 gap-6 px-6'>
             <input type="text" placeholder='America' className=' bg-transparent bg-white py-2 px-3 rounded-sm' />
             <input type="text" placeholder='State/Province' className=' bg-transparent bg-white py-2 px-3 rounded-sm' />
             <input type="text" placeholder='City' className=' bg-transparent bg-white py-2 px-3 rounded-sm' />
@@ -11,7 +11,7 @@ const Forms = () => {
         </div>
 
         <div className=' bg-[#f8f8f8] py-6 px-6 flex flex-col gap-2'>
-             <div className=' flex items-center gap-3 '>
+             <div className=' flex flex-col md:flex-row items-center gap-3 '>
              <div className=' flex flex-col gap-1 w-full'>
               <label className=' text-[#909198] text-[14px] font-[400]'>Name</label>
               <input type="text" placeholder='Enter your Name' className=' bg-transparent py-2 px-3 rounded-sm bg-white' />
