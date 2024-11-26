@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  
+.cart::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+  }
