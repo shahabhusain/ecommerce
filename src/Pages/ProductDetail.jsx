@@ -37,7 +37,7 @@ const ProductDetail = () => {
     <div>
       <div className="md:w-[80%] w-[96%] mx-auto flex flex-col md:flex-row justify-between gap-6">
         <ScrollRestoration />
-        <div className="flex gap-4 md:w-[50%]">
+        <div className="flex md:items-start items-center md:justify-start justify-center gap-4 md:w-[50%]">
           {/* Thumbnails */}
           <div className="flex flex-col gap-3">
             {product.img1.map((item, index) => (
@@ -52,7 +52,7 @@ const ProductDetail = () => {
           </div>
           {/* Main Image */}
           <img
-            className="md:w-[430px] w-[233px] h-[513px] md:h-[630px] object-cover"
+            className="md:w-[430px] w-[70%] h-[513px] md:h-[630px] object-cover"
             src={mainImage}
             alt={product.title}
           />
