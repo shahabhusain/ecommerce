@@ -55,7 +55,7 @@ const Header = () => {
         <Link to="/">
           <img className="w-[100px]" src={logo} alt="Logo" />
         </Link>
-           <div className='flex flex-col gap-3 mt-6'>
+           <div className='flex flex-col gap-3 mt-12'>
            <Link to="/" className="cursor-pointer text-[15px] font-[400] text-[#434343]">Home</Link>
           <Link to="/" className="cursor-pointer text-[15px] font-[400] text-[#434343]">Category</Link>
           <Link to="/shop" className="cursor-pointer text-[15px] font-[400] text-[#434343]">Carts</Link>
