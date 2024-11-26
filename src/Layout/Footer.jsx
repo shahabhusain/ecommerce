@@ -5,7 +5,7 @@ import { IoIosSend } from "react-icons/io";
 const Footer = () => {
   return (
    <div className=' bg-black py-12 mt-20'>
-     <div className=' flex flex-col gap-y-6 md:fle-row justify-between md:w-[90%] w-[80%] mx-auto'>
+     <div className=' flex flex-col md:flex-row gap-y-6 justify-between md:w-[90%] w-[80%] mx-auto'>
 
 <div className=' flex flex-col gap-6'>
 <img className=' w-[90px] h-[24px]' src={logo} alt="" />
